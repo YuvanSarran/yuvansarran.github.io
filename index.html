@@ -19,43 +19,39 @@
             text-align: center;
             padding: 10px 40px;
             border: 1px solid rgba(0, 0, 0, 0.288);
-            background-color: rgba(255, 255, 255, 0.220);
-            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.6);
+            /* border-radius: 5px; */
             color: rgb(0, 0, 0);
             margin: 0;
         }
-
-        .profile{
-            padding: 10px 40px;
-            border: 1px solid rgba(0, 0, 0, 0.288);
-            background-color: rgba(255, 255, 255, 0.220);
-            border-radius: 5px;
-            color: rgb(0, 0, 0);
+        .container{
             position: absolute;
             right: 150px;
             top: 150px;
-            text-decoration: none;
+            width: 250px;
         }
-        .js{
-            padding: 10px 44px;
+        .profile,.book-site,.guess-num{
+            padding: 10px 40px;
             border: 1px solid rgba(0, 0, 0, 0.288);
-            background-color: rgba(255, 255, 255, 0.220);
+            background-color: rgba(255, 255, 255, 0.6);
             border-radius: 5px;
             color: rgb(0, 0, 0);
-            position: absolute;
-            right: 150px;
-            top: 200px;
             text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
         }
+       
 
     </style>
 </head>
 
 <body>
     <h1>MY CODE</h1>
-    <a class="profile" href="https://yuvansarran.github.io/adminlte/profilepage/profile.html" target=”_blank”>Profile Page </a>
-    <a class="js" href="https://yuvansarran.github.io/jslearn/guess-num.html" target=”_blank”>Java Script</a>
-
+    <div class="container">
+        <a class="profile" href="https://yuvansarran.github.io/adminlte/profilepage/profile.html" target=”_blank”>Profile Page </a>
+        <a class="book-site" href="https://yuvansarran.github.io/jslearn/popup.html" target=”_blank”>Book Site</a>
+        <a class="guess-num" href="https://yuvansarran.github.io/jslearn/guess-num.html" target=”_blank”>guess the number</a>
+    </div>
 
 </body>
 

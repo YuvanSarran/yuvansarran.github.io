@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To do List</title>
+</head>
+
+<body>
+
+    <input id="input">
+    <button onclick="add()">add</button>
+
+    <ul id="list-container">
+        <!-- <li>hello
+            <button onclick="deleteiteam(event)">delete</button>
+        </li> -->
+    </ul>
+
+    <script>
+        document.getElementById("input")
+        ul = document.getElementById("list-container")
+
+
+        function add() {
+            listiteam = document.createElement("li")
+            listiteam.innerHTML = input.value + "<button onclick='deleteiteam(event)'>delete</button>"
+            ul.append(listiteam)
+        }
+        function deleteiteam(event) {
+            event.target.parentElement.remove()
+        }
+    </script>
+
+
+
+</body>
+
+</html>

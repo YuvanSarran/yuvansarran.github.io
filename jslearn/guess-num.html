@@ -2,21 +2,79 @@
 <html>
 
 <head>
-
+    <title>guess the number</title>
 </head>
 
 <body>
-    <h1>guess the number</h1>
-    <input id="entered-num">
-    <button onclick="check()">check</button>
-    <p id="result">guess the number</p>
-    <p id="score">scoure:10</p>
+    <style>
+        body {
+            background-color: aliceblue;
+
+        }
+        *{
+            margin: 0px;
+            scrollbar-width: none;
+        }
+        .container {
+            width: 300px;
+            height: 150px;
+            line-height: 40px;
+            margin: auto;
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            border: 5px solid #6db100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+            padding: 20px;
+            margin-top: 200px;
+            position: absolute;
+            top: 0px;
+            left: 38%;
+
+        }
+
+        .container button {
+            background-color: #6db100;
+            color: white;
+            padding: 5px;
+            border-radius: 5px 10px;
+            border: none;
+        }
+
+        .container input {
+            border-radius: 5px 10px;
+            padding: 5px;
+            border: 1px solid black;
+        }
+
+        #myVideo {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            z-index: -1;
+            margin: 0px;
+           
+        }
+    </style>
+
+    <video autoplay muted loop id="myVideo">
+        <source src="gussnum-bg.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <h1>Guess the Number</h1>
+        <input id="entered-num" placeholder="enter the number 1 to 10">
+        <button onclick="check()">check</button>
+        <p id="result">Guess the number</p>
+        <p id="score">Scoure:20</p>
+    </div>
 
     <script>
         enterednum = document.getElementById('entered-num')
         document.getElementById('result')
         score = document.getElementById('score')
-        totalscore = 10
+        totalscore = 20
 
         function check() {
 
@@ -28,7 +86,7 @@
             if (guessnum == random2) {
                 result.textContent = "you are right"
                 console.log("right")
-                 alert("YOU WON...")
+                alert("YOU WON...")
             }
             else {
                 totalscore = totalscore - 1

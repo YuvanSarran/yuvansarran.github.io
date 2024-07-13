@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup project</title>
+    <link rel="stylesheet" href="popup.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <h1>Popup Project</h1>
+    </div>
+
+    <div class="container">
+        <div class="book-container">
+            <h2>Rich dad Poor dad</h2>
+            <h3>Robert</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni enim praesentium, ut ducimus nostrum
+                dolorum distinctio quaerat a nobis ipsa porro quam. Quod officia veniam eum, obcaecati sapiente magni
+                quaerat!</p>
+            <button onclick="delet(event)">delete</button>
+        </div>
+
+        <div class="book-container">
+            <h2>Focus on What Matters</h2>
+            <h3>Darius Foroux</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni enim praesentium, ut ducimus nostrum
+                dolorum distinctio quaerat a nobis ipsa porro quam. Quod officia veniam eum, obcaecati sapiente magni
+                quaerat!</p>
+            <button onclick="delet(event)">delete</button>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="popupbox">
+        <h2 style="margin-bottom: 10px;color: #0062cb;">ADD BOOKS</h2>
+        <form>
+            <input placeholder="add book title" id="book-title">
+            <input placeholder="add book auther" id="book-auther">
+            <textarea placeholder="add book description" id="book-description"></textarea>
+            <button onclick="add(event)" id="add-book">ADD</button><button onclick="cancel(event)">CANCEL</button>
+        </form>
+    </div>
+
+
+    <button id="addbutton" onclick="popup()">+</button>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

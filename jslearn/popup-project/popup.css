@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0px;
+
+}
+
+body {
+    font-family: "Roboto";
+    font-weight: 300;
+    background-color: #eaeaea;
+    background-image:url(blur-bg.avif);
+    background-size: cover;
+}
+
+.navbar {
+    color: aliceblue;
+    background-color: #0062cb;
+    padding: 15px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+}
+
+.book-container {
+    border-top: 5px solid #0062cb;
+    margin: 20px;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+}
+
+.book-container button {
+    padding: 5px 15px;
+    background-color: #007bff;
+    color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    margin: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.book-container h2 {
+    color: #0062cb;
+}
+.book-container h3 {
+    color: #00000065;
+    margin-bottom: 10px;
+}
+#addbutton {
+    padding: 20px 30px;
+    background-color: #0062cb;
+    color: #ffffff;
+    border-radius: 100%;
+    border: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 40px;
+}
+
+.overlay {
+    background-color: rgba(28, 28, 28, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    z-index: 1;
+}
+
+.popupbox {
+    border: 10px solid #007bff;
+    background-color: white;
+    width: 500px;
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 25%;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+}
+
+.popupbox input {
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.popupbox input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.popupbox textarea {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+.popupbox textarea::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.popupbox button {
+    padding: 5px 20px;
+    background-color: #007bff;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    margin: 10px 10px 0px 10px;
+}
