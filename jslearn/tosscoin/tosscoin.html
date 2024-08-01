@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toss coin</title>
+</head>
+
+<body style="text-align: center;">
+    <h1>Toss coin</h1>
+    <h3>Head / Tail</h3>
+    <img id="myImage" src="head.jpg" alt="Image"><br>
+    <h2 id="result"></h2>
+    <button onclick="changeImage()">Toss the Coin</button>
+    <audio id="myAudio" src="coin-flip.mp3" preload="auto"></audio>
+
+    <script>
+
+        async function changeImage() {
+            audio = document.getElementById("myAudio");
+
+            audio.play();
+
+            await new Promise(function(a) {
+                setTimeout(function() {a();}, 1000);
+            });
+
+            random = Math.random()
+            random = Math.floor(random * 2)
+            console.log(random)
+
+            if (random == 1) {
+
+
+                document.getElementById('myImage').setAttribute('src', 'tail.jpg');
+                document.getElementById('result').innerHTML = 'Tail'
+
+            }
+            else {
+                document.getElementById('myImage').setAttribute('src', 'head.jpg');
+                document.getElementById('result').innerHTML = 'Head'
+
+            }
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -11,13 +11,13 @@
 
 <body>
     <div>
-        <ul class="vnav-ul">
-            <li class="heading"><i class="fa-solid fa-house-user"></i> AdminLTE3</li>
+        <ul class="vnav-ul" id="navbar">
+           <div id="mobnav"> <li class="heading"><i class="fa-solid fa-house-user"></i> AdminLTE3</li>
             <div><img class="profile" src="profile.jpg" width="35px" height="35px">
                 <li class="name">Yuvan Sarran YS</li>
             </div>
-            <li><input class="navsearch" type="search" placeholder="Search"></li>
-            <div class="iconbox">
+            <li><input class="navsearch" type="search" placeholder="Search"></li></div>
+            <div class="iconbox" >
                 <li class="vnav"><i class="fa-solid fa-gauge-high"></i><a href="#dashboard" target="”_blank”">Dash Board</a></li>
                 <div class="active"><li class="vnav"><i class="fa-solid fa-user"></i><a href="profile.html">Profile</a></li>
                 </div>
@@ -50,7 +50,7 @@
         </ul>
     </div>
     <ul class="hnav-ul">
-        <li class="hnav"><a href="#list"></a><i class="fa-solid fa-list"></i></li>
+        <li class="hnav" id="list"><a href="#list"></a><i class="fa-solid fa-list" onclick="navbaropen()"></i></li>
         <div class="moblist">
             <li class="hnav"><a href="#home"></a>Home</li>
             <li class="hnav"><a href="#contact"></a>Contact</li>
@@ -59,11 +59,11 @@
             <li class="icon"><a href="#search"></a><i class="fa-solid fa-magnifying-glass"></i></li>
             <li><a href="#message"></a><i class="fa-regular fa-comments"></i></li>
             <li><a href="#notification"></a><i class="fa-regular fa-bell"></i></li>
-            <li><a href="#arrow"></a><i class="fa-solid fa-maximize"></i></li>.
+            <li><a href="#arrow"></a><i class="fa-solid fa-maximize"></i></li>
             <li><a href="#arrow"></a><i class="fas fa-th-large"></i></li>
         </div>
     </ul>
-    <div class="leftmargin">
+    <div class="leftmargin" onclick="navbarclose()">
         <div class="left-content">
             <p style="display: inline-block; font-size: 30px;margin:15px 0 0 15px;">Profile</p>
             <div class="bio">
@@ -206,6 +206,7 @@
 
         </div>
     </div>
+    <script src="profile.js"></script>
 </body>
 
 </html>

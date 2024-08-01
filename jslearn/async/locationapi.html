@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+</head>
+
+<body>
+
+    <input type="text" id="searchBox" placeholder="Search...">
+    <button onclick="search()">Search</button>
+    <pre id="result"></pre>
+
+    <!-- <table>
+        <tr id="tablerow"></tr>
+    </table> -->
+
+    <script>
+        
+        async function search() {
+            var response = await fetch("https://locationsapi.letsdosimple.com/countries");
+            var r = await response.json();
+            countries = r.countries;
+            console.log(countries)
+
+            const searchText = document.getElementById('searchBox').value.toLowerCase();
+            const result = countries.find(item => item.name.toLowerCase() === searchText);
+            document.getElementById('result').textContent = result ? JSON.stringify(result, null, 2) : 'Not found';
+
+            // for (i = 0; i < countries.length; i++) {
+
+            //     // Create and append the id cell
+            // const idCell = document.createElement("td");
+            // idCell.textContent = countries[i].id;
+            // row.appendChild(idCell);
+
+            // // Create and append the name cell
+            // const nameCell = document.createElement("td");
+            // nameCell.textContent = countries[i].name;
+            // row.appendChild(nameCell);
+
+            // // Create and append the iso3 cell
+            // const iso3Cell = document.createElement("td");
+            // iso3Cell.textContent = countries[i].iso3;
+            // row.appendChild(iso3Cell);
+
+            // // Create and append the emoji cell
+            // const emojiCell = document.createElement("td");
+            // emojiCell.textContent = countries[i].emoji;
+            // row.appendChild(emojiCell);
+
+
+            //     // list = document.createElement('tr')
+            //     // list.innerHTML =countries[i].name
+            //     // tablerow.append(list)
+
+            // }
+        }
+    </script>
+</body>
+
+</html>

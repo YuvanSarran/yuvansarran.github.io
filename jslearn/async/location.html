@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+    <script src="https://kit.fontawesome.com/e7acf60731.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            margin: 0;
+        }
+
+        .heading {
+            padding: 0px 15px;
+            color: white;
+            height: 50px;
+            background-color: rgb(89, 89, 249);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .button {
+            padding: 5px;
+            background-color: rgb(89, 89, 249);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-style: italic;
+            cursor: pointer;
+        }
+
+        h3 {
+            padding-bottom: 20px;
+            border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+
+        }
+
+        .country {
+            padding-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            text-align: center;
+            border: 1px rgba(0, 0, 0, 0.1) solid;
+        }
+
+        .states {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            text-align: center;
+            border: 1px rgba(0, 0, 0, 0.1) solid;
+        }
+
+        .cities {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            text-align: center;
+            border: 1px rgba(0, 0, 0, 0.1) solid;
+        }
+
+        #tablerow,
+        #selectedTable,
+        #citytable {
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .fa-circle-info {
+            font-size: larger;
+            text-align: right;
+            padding: 13px 5px;
+            border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+            color: rgb(111, 111, 255);
+        }
+
+        .fa-circle-right {
+            font-size: larger;
+            text-align: right;
+            padding: 13px 5px;
+            border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+            color: rgb(255, 71, 188);
+        }
+
+        td {
+            border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="heading">
+        <h2>🌍 Country State City</h2>
+        <h3 style="padding-bottom: 0;">GitHub</h3>
+    </div>
+
+    <div class="container">
+        <div class="country">
+            <h3>Countries</h3>
+            <button class="button" onclick="search()"><i style="color: white; padding: 0 10px;"
+                    class="fa-solid fa-bars"></i>show countries</button>
+            <table id="tablerow"></table>
+        </div>
+        <div class="states">
+            <h3>States</h3>
+            <button class="button" onclick="statesclear()"><i style="color: white; padding: 0 10px;"
+                    class="fa-solid fa-broom"></i>Clear</button>
+            <table id="selectedTable"></table>
+        </div>
+        <div class="cities">
+            <h3>Cities</h3>
+            <button class="button" onclick="cityclear()"><i style="color: white; padding: 0 10px;"
+                    class="fa-solid fa-broom"></i>Clear</button>
+            <table id="citytable"></table>
+        </div>
+    </div>
+    <script>
+        function statesclear() {
+            selectedTable.innerHTML = " ";
+            citytable.innerHTML = " ";
+        }
+        function cityclear() {
+            citytable.innerHTML = " ";
+        }
+
+        async function search() {
+            const response = await fetch("https://locationsapi.letsdosimple.com/countries");
+            const r = await response.json();
+            countries = r.countries;
+            console.log(countries)
+            console.log('number of countries:', countries.length)
+
+            selectedTable = document.getElementById('selectedTable')
+
+            for (let i = 0; i < countries.length; i++) {
+                // Create a new <tr> element
+                let list = document.createElement('tr');
+
+                // Create a new <td> element for the country name
+                let countryName = document.createElement('td');
+                countryName.textContent = countries[i].emoji + ' ' + countries[i].name;
+
+                // Create a new <i> element for the Font Awesome icon
+                let icon = document.createElement('i');
+                // Add the Font Awesome classes to the <i> element
+                icon.className = 'fa-solid fa-circle-info'
+
+                // Create a new <i> element for the Font Awesome icon
+                let arrow = document.createElement('i');
+
+                // Add the Font Awesome classes to the <i> element
+                arrow.className = 'fa-solid fa-circle-right'
+
+
+
+                // list.addEventListener('click', function () {
+
+                //     // Create a new <tr> element for the selected table
+                //     let selectedRow = document.createElement('tr');
+
+                //     // Create a new <td> element for the country ID
+                //     let countryId = document.createElement('td');
+                //     countryId.textContent = countries[i].id;
+
+                //     // Append the country ID to the new row
+                //     selectedRow.appendChild(countryId);
+
+                //     // Append the new row to the selected table
+                //     selectedTable.appendChild(selectedRow);
+                // });
+
+
+
+
+                // Append the country name to the <tr> element
+                list.appendChild(countryName);
+                list.appendChild(icon);
+                list.appendChild(arrow);
+                // Append the <tr> element to the table row
+                tablerow.appendChild(list);
+
+
+                // Add an event listener to the <tr> element to log the id when clicked
+                list.addEventListener('click', function () {
+                    selectedTable.innerHTML = " ";
+                    citytable.innerHTML = " ";
+
+                    // this code make the page to go top if the element is clicked
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    })
+
+                    // states = countries[i].states;
+                    // console.log(states);
+
+                    id = countries[i].id;
+                    console.log('country id is:', id)
+
+                    async function postStateData(id) {
+                        const url = 'https://locationsapi.letsdosimple.com//states';
+
+                        // Data to be sent in the request
+                        const data = new URLSearchParams();
+                        data.append('country_id', id);
+
+                        try {
+                            // Make the POST request using fetch
+                            const response = await fetch(url, {
+                                method: 'POST',
+                                headers: {
+                                    'Authorization': 'Basic YmFkbWluOmJwYXNzQDIxMw==',
+                                    'Content-Type': 'application/x-www-form-urlencoded'
+                                },
+                                body: data
+                            });
+
+                            // Check if the response is OK (status code 200-299)
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! Status: ${response.status}`);
+                            }
+
+                            // Parse the JSON response
+                            const result = await response.json();
+
+                            // Log the result
+                            // console.log('Data posted successfully:', result.states);
+                            states = result.states;
+                            console.log('states posted successfully:', states)
+
+
+                        } catch (error) {
+                            // Log any errors
+                            console.error('Error posting data:', error);
+                            
+                            error = document.createElement('tr');
+                            errorname = document.createElement('td');
+                            errorname.textContent = 'No States Found';
+                            error.append(errorname);
+                            selectedTable.append(error);
+
+                        }
+                        console.log('number of states:', states.length)
+                        
+
+                        for (let i = 0; i < states.length; i++) {
+
+                            // Create a new <tr> element
+                            let selectedRow = document.createElement('tr');
+
+                            // Create a new <td> element for the country name
+                            let statesname = document.createElement('td');
+                            statesname.textContent = states[i].name;
+
+
+                            // Create a new <i> element for the Font Awesome icon
+                            let icon = document.createElement('i');
+                            // Add the Font Awesome classes to the <i> element
+                            icon.className = 'fa-solid fa-circle-info  '
+
+                            // Create a new <i> element for the Font Awesome icon
+                            let arrow = document.createElement('i');
+
+                            // Add the Font Awesome classes to the <i> element
+                            arrow.className = '  fa-solid fa-circle-right'
+
+                            selectedRow.appendChild(statesname);
+                            selectedRow.appendChild(icon);
+                            selectedRow.appendChild(arrow);
+                            selectedTable.appendChild(selectedRow);
+
+
+
+                            selectedRow.addEventListener('click', function () {
+                                citytable.innerHTML = " ";
+
+
+                                // this code make the page to go top if the element is clicked
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: 'smooth'
+                                })
+
+                                // states = countries[i].states;
+                                // console.log(states);
+                                statesid = states[i].id;
+                                console.log('state id is:', statesid)
+
+                                async function postcityData(id,statesid) {
+                                    const url = 'https://locationsapi.letsdosimple.com//cities';
+
+                                    // Data to be sent in the request
+                                    const data = new URLSearchParams();
+                                    data.append('country_id', id);
+                                    data.append('state_id', statesid);
+
+                                    try {
+                                        // Make the POST request using fetch
+                                        const response = await fetch(url, {
+                                            method: 'POST',
+                                            headers: {
+                                                'Authorization': 'Basic YmFkbWluOmJwYXNzQDIxMw==',
+                                                'Content-Type': 'application/x-www-form-urlencoded'
+                                            },
+                                            body: data
+                                        });
+
+                                        // Check if the response is OK (status code 200-299)
+                                        if (!response.ok) {
+                                            throw new Error(`HTTP error! Status: ${response.status}`);
+                                        }
+
+                                        // Parse the JSON response
+                                        const result = await response.json();
+
+                                        // Log the result
+                                        console.log('Data posted successfully:', result.cities);
+                                        cities = result.cities;
+                                        console.log('number of cities:', cities.length)
+                                    } catch (error) {
+                                        // Log any errors
+                                        console.error('Error posting data:', error);
+
+                                        cityerror = document.createElement('tr');
+                                        cityerrorname = document.createElement('td');
+                                        cityerrorname.textContent = 'No States Found';
+                                        cityerror.append(cityerrorname);
+                                        citytable.append(cityerror);
+                                    }
+
+                                    for (let i = 0; i < cities.length; i++) {
+                                        // Create a new <tr> element
+                                        let selectedrow = document.createElement('tr');
+
+                                        // Create a new <td> element for the country name
+                                        let cityname = document.createElement('td');
+                                        cityname.textContent = cities[i].name;
+
+
+                                        // Create a new <i> element for the Font Awesome icon
+                                        let icon = document.createElement('i');
+                                        // Add the Font Awesome classes to the <i> element
+                                        icon.className = 'fa-solid fa-circle-info  '
+                                        // Create a new <i> element for the Font Awesome icon
+                                        let arrow = document.createElement('i');
+                                        // Add the Font Awesome classes to the <i> element
+                                        arrow.className = '  fa-solid fa-circle-right'
+
+                                        selectedrow.appendChild(cityname);
+                                        selectedrow.appendChild(icon);
+                                        selectedrow.appendChild(arrow);
+                                        citytable.appendChild(selectedrow);
+
+                                    }
+
+                                }
+
+                                // if i used this state id as a parameter,function is not working 
+                                postcityData(id,statesid);
+                                // postcityData('10');
+
+                            });
+                        }
+
+                    }
+
+                    // countryid as a parameter
+                    postStateData(id);
+                });
+
+            }
+
+        }
+        search()
+    </script>
+</body>
+
+</html>

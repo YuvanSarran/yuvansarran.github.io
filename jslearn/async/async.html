@@ -1,0 +1,30 @@
+<script>
+console.log("Async Learning ...");
+
+var name1 = myName("Kavin", 32);
+console.log(name1);
+console.log(myName("Yuvan", 21));
+function myName(name, age){
+    // console.log("My Name is "+name+". My age is "+age);
+    return "My Name is "+name+". My age is "+age;
+}
+
+myBigFunction();
+function myBigFunction(){
+    console.log("myBigFunction started");
+    // var response = fetch("https://reqres.in/api/users/2");
+    // var result = response.json();
+    // console.log(result.data.first_name);
+    console.log("myBigFunction completed");
+}
+
+myBigFunction1();
+async function myBigFunction1(){
+    console.log("myBigFunction1 started");
+    var response = await fetch("https://reqres.in/api/users/2");
+    var result = await response.json();
+    console.log(result.data.first_name);
+    console.log("myBigFunction1 completed");
+}
+
+</script>

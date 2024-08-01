@@ -11,8 +11,8 @@
 
 <body>
     <div>
-        <ul class="vnav-ul">
-            <li class="heading"><i class="fa-solid fa-house-user"></i> AdminLTE3</li>
+        <ul class="vnav-ul" id="navbar">
+            <li class="heading" id="mobnav"><i class="fa-solid fa-house-user"></i> AdminLTE3</li>
             <div><img class="profile" src="profile.jpg" width="35px" height="35px">
                 <li class="name">Yuvan Sarran YS</li>
             </div>
@@ -50,7 +50,7 @@
         </ul>
     </div>
     <ul class="hnav-ul">
-        <li class="hnav"><a href="#list"></a><i class="fa-solid fa-list"></i></li>
+        <li class="hnav" id="list"><a href="#list"></a><i class="fa-solid fa-list" onclick="navbaropen()"></i></li>
         <div class="moblist">
             <li class="hnav"><a href="#home"></a>Home</li>
             <li class="hnav"><a href="#contact"></a>Contact</li>
@@ -63,8 +63,8 @@
             <li><a href="#arrow"></a><i class="fas fa-th-large"></i></li>
         </div>
     </ul>
-    <div class="leftmargin">
-        <p style="display: inline-block; font-size: 30px;margin:15px 0 0 15px;">Invoice</p>
+    <div class="leftmargin" onclick="navbarclose()">
+        <p style="display: block; font-size: 30px; margin:15px 0px 0px 15px;">Invoice</p>
         <!-- <ul >
                 <li class="li">Home</li>
                 <li class="li">Invoice</li>
@@ -221,6 +221,7 @@
             <div><b>Copyright © 2014-2021 AdminLTE.io.</b>All rights reserved.</div><b class="version">Version 3.2.0</b>
         </div>
     </div>
+    <script src="invoice.js"></script>
 </body>
 
 </html>
